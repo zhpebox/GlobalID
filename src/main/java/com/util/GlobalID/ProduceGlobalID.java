@@ -50,13 +50,17 @@ public class ProduceGlobalID {
 	}
 	
 	//转化关系表
-	public static String[] chars = new String[] { "01", "02", "03", "04",
-		"05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
-		"16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-		"27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
-		"38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48",
-		"49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59",
-		"60", "61", "62" };
+	public static String[] chars = new String[] { 
+			  "01", "02", "03", "04", "05", "06", "07", "08", "09",
+		"10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+		"20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+		"30", "31", "32", "33", "34", "35", "36", "37",	"38", "39",
+		"40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+		"50", "51", "52", "53", "54", "55", "56", "57", "58", "59",
+		"60", "61", "62", "63", "64", "65", "66", "67", "68", "69",
+		"70", "71", "72", "73", "74", "75", "76", "77", "78", "79",
+		"80", "81", "82", "83", "84", "85", "86", "87", "88", "89",
+		"90", "91", "92", "93", "94", "95", "96", "97", "98", "99"};
 	
 	/**
 	 * 根据UUID产生16位随机数
@@ -68,19 +72,19 @@ public class ProduceGlobalID {
 		for (int i = 0; i < 8; i++) {
 			String str = uuid.substring(i * 4, i * 4 + 4);
 			int x = Integer.parseInt(str, 16);
-			shortBuffer.append(chars[x % 0x3E]); //62进制
+//			shortBuffer.append(chars[x % 0x3E]); //62进制
+			shortBuffer.append(chars[x % 0x63]); //99进制
 		}
 		return shortBuffer.toString();
 
 	}
 	
 	
-//	public static void main(String[] args) {
-//		ProduceFinal s = new ProduceFinal();
-//		for(int i = 0;i<1000;i++){
-//			System.out.println(s.generateRandomId());
-//		}
-//		
-//	}
+	public static void main(String[] args) {
+		for(int i = 0;i<1000;i++){
+			System.out.println(ProduceGlobalID.generateRandomId());
+		}
+		
+	}
 	
 }
